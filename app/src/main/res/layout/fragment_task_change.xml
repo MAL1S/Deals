@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.task.taskchange.TaskChangeFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_task_name_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/medium_20"
+        android:layout_marginTop="@dimen/medium_20"
+        android:backgroundTint="@color/white_dark"
+        android:hint="Deal name"
+        android:textColorHint="@color/dark_gray"
+        app:boxBackgroundMode="filled"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:expandedHintEnabled="false"
+        app:hintTextAppearance="@style/TextInputContentHint"
+        app:hintTextColor="@color/dark_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_task_name_change"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/background_text_input"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_task_commentary_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/medium_20"
+        android:layout_marginTop="@dimen/medium_20"
+        android:backgroundTint="@color/white_dark"
+        android:hint="Deal name"
+        android:textColorHint="@color/dark_gray"
+        app:boxBackgroundMode="filled"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:expandedHintEnabled="false"
+        app:hintTextAppearance="@style/TextInputContentHint"
+        app:hintTextColor="@color/dark_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_task_name_change">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_task_commentary_change"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/background_text_input"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_task_deadline_change"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_text_input"
+        android:layout_marginStart="@dimen/medium_20"
+        android:layout_marginTop="@dimen/medium_20"
+        android:layout_marginEnd="@dimen/small_10"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/tv_deal_date_change"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_task_commentary_change">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/small_10"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_14"
+            android:paddingStart="@dimen/small_10"
+            android:layout_marginEnd="@dimen/small_10"
+            android:text="Select deadline" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_date" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_deal_date_change"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_10"
+        android:layout_marginEnd="@dimen/medium_20"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_task_deadline_change"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:textSize="@dimen/text_24"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/layout_task_deadline_change"
+        app:layout_constraintTop_toTopOf="@+id/layout_task_deadline_change"
+        tools:text="Current date" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_task_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginHorizontal="@dimen/medium_20"
+        android:backgroundTint="@color/blue"
+        android:paddingVertical="@dimen/small_16"
+        android:text="@string/confirm"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16"
+        app:cornerRadius="@dimen/small_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,4 +19,8 @@
         <item name="android:layout_height">1dp</item>
         <item name="android:background">@color/white_dark</item>
     </style>
+
+    <style name="TextInputContentHint" parent="Widget.Design.TextInputLayout">
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>

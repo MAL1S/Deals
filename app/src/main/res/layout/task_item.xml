@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/medium_20"
-    android:backgroundTint="@color/orange"
+    android:backgroundTint="@color/light_gray"
     app:cardCornerRadius="@dimen/small_12">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,18 +19,18 @@
             android:layout_marginVertical="@dimen/medium_20"
             android:layout_marginStart="@dimen/medium_20"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_32"
+            android:textSize="@dimen/text_20"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Task name" />
 
         <CheckBox
+            android:id="@+id/checkbox_task"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/white"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
+            android:text="@null"
             app:layout_constraintBottom_toBottomOf="@+id/tv_task_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_task_name" />
@@ -42,7 +42,7 @@
             android:layout_marginStart="@dimen/medium_20"
             android:layout_marginTop="@dimen/small_10"
             android:textColor="@color/brown"
-            android:textSize="@dimen/text_20"
+            android:textSize="@dimen/text_16"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_task_name"
@@ -50,6 +50,7 @@
 
 
         <TextView
+            android:id="@+id/tv_task_commentary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/medium_20"

@@ -9,13 +9,16 @@
         android:id="@+id/dealFragment"
         android:name="com.example.deals.presentation.deal.DealFragment"
         android:label="fragment_deal"
-        tools:layout="@layout/fragment_deal" >
+        tools:layout="@layout/fragment_deal_list" >
         <action
             android:id="@+id/action_dealFragment_to_helpFragment"
             app:destination="@id/helpFragment" />
         <action
-            android:id="@+id/action_dealFragment_to_dealDetailsFragment"
-            app:destination="@id/dealDetailsFragment" />
+            android:id="@+id/action_dealFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
+        <action
+            android:id="@+id/action_dealFragment_to_dealCreateFragment"
+            app:destination="@id/dealCreateFragment" />
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
@@ -26,33 +29,64 @@
         android:id="@+id/taskFragment"
         android:name="com.example.deals.presentation.task.TaskFragment"
         android:label="fragment_task"
-        tools:layout="@layout/fragment_task" >
+        tools:layout="@layout/fragment_task_list" >
         <action
             android:id="@+id/action_taskFragment_to_taskDetailsFragment"
             app:destination="@id/taskDetailsFragment" />
         <action
             android:id="@+id/action_taskFragment_to_helpFragment"
             app:destination="@id/helpFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/dealDetailsFragment"
-        android:name="com.example.deals.presentation.dealdetails.DealDetailsFragment"
-        android:label="fragment_deal_details"
-        tools:layout="@layout/fragment_deal_details" >
         <action
-            android:id="@+id/action_dealDetailsFragment_to_taskFragment"
-            app:destination="@id/taskFragment" />
+            android:id="@+id/action_taskFragment_to_dealChangeFragment"
+            app:destination="@id/dealChangeFragment" />
         <action
-            android:id="@+id/action_dealDetailsFragment_to_helpFragment"
-            app:destination="@id/helpFragment" />
+            android:id="@+id/action_taskFragment_to_taskCreateFragment"
+            app:destination="@id/taskCreateFragment" />
+        <argument
+            android:name="deal"
+            app:argType="com.example.deals.domain.model.Deal" />
     </fragment>
     <fragment
         android:id="@+id/taskDetailsFragment"
-        android:name="com.example.deals.presentation.taskdetails.TaskDetailsFragment"
+        android:name="com.example.deals.presentation.task.taskdetails.TaskDetailsFragment"
         android:label="fragment_task_details"
         tools:layout="@layout/fragment_task_details" >
         <action
             android:id="@+id/action_taskDetailsFragment_to_helpFragment"
             app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/action_taskDetailsFragment_to_taskChangeFragment"
+            app:destination="@id/taskChangeFragment" />
+        <argument
+            android:name="task"
+            app:argType="com.example.deals.domain.model.Task" />
+    </fragment>
+    <fragment
+        android:id="@+id/dealChangeFragment"
+        android:name="com.example.deals.presentation.deal.dealchange.DealChangeFragment"
+        android:label="fragment_deal_change"
+        tools:layout="@layout/fragment_deal_change" >
+        <argument
+            android:name="deal"
+            app:argType="com.example.deals.domain.model.Deal" />
+    </fragment>
+    <fragment
+        android:id="@+id/dealCreateFragment"
+        android:name="com.example.deals.presentation.deal.dealcreate.DealCreateFragment"
+        android:label="fragment_task_create"
+        tools:layout="@layout/fragment_task_create" />
+    <fragment
+        android:id="@+id/taskCreateFragment"
+        android:name="com.example.deals.presentation.task.taskcreate.TaskCreateFragment"
+        android:label="fragment_task_create"
+        tools:layout="@layout/fragment_task_create" />
+    <fragment
+        android:id="@+id/taskChangeFragment"
+        android:name="com.example.deals.presentation.task.taskchange.TaskChangeFragment"
+        android:label="fragment_task_change"
+        tools:layout="@layout/fragment_task_change" >
+        <argument
+            android:name="task"
+            app:argType="com.example.deals.domain.model.Task" />
     </fragment>
 </navigation>

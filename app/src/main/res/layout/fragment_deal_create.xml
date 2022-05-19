@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.deal.dealcreate.DealCreateFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_deal_name_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white_dark"
+        android:hint="@string/deal_name"
+        android:layout_marginHorizontal="@dimen/medium_20"
+        android:layout_marginTop="@dimen/medium_20"
+        android:textColorHint="@color/dark_gray"
+        app:boxBackgroundMode="filled"
+        app:boxStrokeWidthFocused="0dp"
+        app:expandedHintEnabled="false"
+        app:boxStrokeWidth="0dp"
+        app:hintTextAppearance="@style/TextInputContentHint"
+        app:hintTextColor="@color/dark_gray">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_deal_name_create"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/background_text_input"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_deal_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/medium_20"
+        android:backgroundTint="@color/blue"
+        android:paddingVertical="@dimen/small_16"
+        android:text="@string/confirm"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16"
+        android:layout_gravity="center|bottom"
+        app:cornerRadius="@dimen/small_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</FrameLayout>

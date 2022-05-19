@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/dark_blue"
+    app:cardCornerRadius="@dimen/small_12"
+    android:layout_marginBottom="@dimen/medium_20"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tv_deal_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_20"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginVertical="@dimen/medium_20"
+        android:layout_marginStart="@dimen/medium_20"
+        tools:text="Deal name"/>
+
+</androidx.cardview.widget.CardView>
