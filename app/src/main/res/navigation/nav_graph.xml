@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dealFragment">
+
+    <fragment
+        android:id="@+id/dealFragment"
+        android:name="com.example.deals.presentation.deal.DealFragment"
+        android:label="fragment_deal"
+        tools:layout="@layout/fragment_deal" >
+        <action
+            android:id="@+id/action_dealFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/action_dealFragment_to_dealDetailsFragment"
+            app:destination="@id/dealDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.example.deals.presentation.help.HelpFragment"
+        android:label="fragment_help"
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.example.deals.presentation.task.TaskFragment"
+        android:label="fragment_task"
+        tools:layout="@layout/fragment_task" >
+        <action
+            android:id="@+id/action_taskFragment_to_taskDetailsFragment"
+            app:destination="@id/taskDetailsFragment" />
+        <action
+            android:id="@+id/action_taskFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dealDetailsFragment"
+        android:name="com.example.deals.presentation.dealdetails.DealDetailsFragment"
+        android:label="fragment_deal_details"
+        tools:layout="@layout/fragment_deal_details" >
+        <action
+            android:id="@+id/action_dealDetailsFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
+        <action
+            android:id="@+id/action_dealDetailsFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskDetailsFragment"
+        android:name="com.example.deals.presentation.taskdetails.TaskDetailsFragment"
+        android:label="fragment_task_details"
+        tools:layout="@layout/fragment_task_details" >
+        <action
+            android:id="@+id/action_taskDetailsFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
+    </fragment>
+</navigation>
