@@ -14,6 +14,7 @@ import com.example.deals.R
 import com.example.deals.databinding.FragmentDealListBinding
 import com.example.deals.databinding.FragmentTaskListBinding
 import com.example.deals.domain.model.Deal
+import com.example.deals.presentation.main.MainActivity
 import com.example.deals.presentation.task.TaskFragmentDirections
 import com.example.deals.presentation.task.TaskRecyclerAdapter
 import com.example.deals.presentation.task.TaskViewModel
@@ -39,6 +40,8 @@ class DealFragment : Fragment(), OnDealClickedListener {
 
     override fun onResume() {
         super.onResume()
+
+        MainActivity.State.drawerToggleLiveData.value = false
 
         init()
     }

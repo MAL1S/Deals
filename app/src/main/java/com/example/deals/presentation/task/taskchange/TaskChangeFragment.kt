@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.deals.R
@@ -42,13 +43,20 @@ class TaskChangeFragment : Fragment() {
     }
 
     private fun init() {
-        binding.btnTaskChange.setOnClickListener {
+        binding.apply {
             if (task != null) {
-                task!!.name = binding.editTextTaskNameChange.text.toString()
-                task!!.commentary = binding.editTextTaskCommentaryChange.text.toString()
-                task!!.deadlineDate = binding.tvDealDateChange.text.toString()
+                editTextTaskNameChange.setText(task!!.name)
+                editTextTaskCommentaryChange.setText(task!!.commentary)
+                tvDealDateChange.text = task!!.deadlineDate
 
-                viewModel.changeTask(task = task!!)
+                btnTaskChange.setOnClickListener {
+                    task!!.name = binding.editTextTaskNameChange.text.toString()
+                    task!!.commentary = binding.editTextTaskCommentaryChange.text.toString()
+                    task!!.deadlineDate = binding.tvDealDateChange.text.toString()
+
+                    viewModel.changeTask(task = task!!)
+                    findNavController().popBackStack()
+                }
             }
         }
     }

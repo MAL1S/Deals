@@ -16,17 +16,18 @@ class TaskRepositoryImpl @Inject constructor(
     }
 
     override fun change(task: Task) {
-        taskDao.updateTask(
-            name = task.name,
-            commentary = task.commentary,
-            deadlineDate = task.deadlineDate,
-            id = task.id,
-            completion = task.isCompleted
-        )
+//        taskDao.updateTask(
+//            name = task.name,
+//            commentary = task.commentary,
+//            deadlineDate = task.deadlineDate,
+//            id = task.id
+//        )
+        taskDao.updateTask(task = task)
     }
 
     override fun change(completion: Boolean, id: Int) {
-        taskDao.updateTaskCompletion(completion = completion, id = id)
+        //taskDao.updateTaskCompletion(completion = completion, id = id)
+        //taskDao.updateTask(task = task)
     }
 
     override fun remove(task: Task) {

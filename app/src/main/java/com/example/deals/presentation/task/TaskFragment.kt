@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
@@ -15,6 +16,7 @@ import com.example.deals.R
 import com.example.deals.databinding.FragmentTaskListBinding
 import com.example.deals.domain.model.Deal
 import com.example.deals.domain.model.Task
+import com.example.deals.presentation.main.MainActivity
 import com.example.deals.presentation.task.taskchange.TaskChangeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,10 +46,6 @@ class TaskFragment : Fragment(), OnTaskClickedListener {
         val arg: TaskFragmentArgs by navArgs()
         deal = arg.deal
 
-        //setHasOptionsMenu(true)
-        //requireActivity().findViewById<TextView>(R.id.toolbar_text).text = deal?.name
-        //requireActivity().actionBar?.title = deal?.name
-
         init()
     }
 
@@ -55,6 +53,11 @@ class TaskFragment : Fragment(), OnTaskClickedListener {
         super.onResume()
 
         (requireActivity() as AppCompatActivity).supportActionBar?.title = deal?.name
+        MainActivity.State.drawerToggleLiveData.value = true
+        //(requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+//        val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
+//        toolbar.setnavigation
+//        (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
         viewModel.getTasks(deal = deal!!)
     }
 
@@ -97,6 +100,6 @@ class TaskFragment : Fragment(), OnTaskClickedListener {
     }
 
     override fun onCompletionChanged(task: Task) {
-        changeViewModel.changeTaskCompletion(completion = task.isCompleted, id = task.id)
+        changeViewModel.changeTask(task = task)
     }
 }

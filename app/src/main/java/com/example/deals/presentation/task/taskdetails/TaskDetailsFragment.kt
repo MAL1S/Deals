@@ -1,16 +1,16 @@
 package com.example.deals.presentation.task.taskdetails
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.deals.R
 import com.example.deals.databinding.FragmentTaskDetailsBinding
 import com.example.deals.domain.model.Task
+import com.example.deals.presentation.task.TaskFragmentDirections
 import com.example.deals.presentation.task.taskchange.TaskChangeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,6 +33,7 @@ class TaskDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setHasOptionsMenu(true)
         init()
     }
 
@@ -47,11 +48,25 @@ class TaskDetailsFragment : Fragment() {
             binding.checkboxTaskCompletion.isChecked = task!!.isCompleted
 
             binding.checkboxTaskCompletion.setOnCheckedChangeListener { compoundButton, b ->
-                changeViewModel.changeTaskCompletion(
-                    binding.checkboxTaskCompletion.isChecked,
-                    task!!.id
-                )
+//                changeViewModel.changeTaskCompletion(
+//                    binding.checkboxTaskCompletion.isChecked,
+//                    task!!.id
+//                )
+                changeViewModel.changeTask(task!!)
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.edit, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_settings) {
+            val action = TaskDetailsFragmentDirections.actionTaskDetailsFragmentToTaskChangeFragment(task!!)
+            action.task = task!!
+            view?.findNavController()?.navigate(action)
+        }
+        return true
     }
 }
