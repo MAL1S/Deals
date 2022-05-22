@@ -36,7 +36,7 @@ class DealCreateFragment : Fragment() {
     }
 
     private fun init() {
-        binding.btnDealAdd.setOnClickListener {
+        binding.btnDealConfirm.setOnClickListener {
             viewModel.saveDeal(Deal(name = binding.editTextDealNameCreate.text.toString()))
             view?.findNavController()?.popBackStack()
         }

@@ -79,7 +79,11 @@
         android:id="@+id/taskCreateFragment"
         android:name="com.example.deals.presentation.task.taskcreate.TaskCreateFragment"
         android:label="fragment_task_create"
-        tools:layout="@layout/fragment_task_create" />
+        tools:layout="@layout/fragment_task_create" >
+        <argument
+            android:name="deal"
+            app:argType="com.example.deals.domain.model.Deal" />
+    </fragment>
     <fragment
         android:id="@+id/taskChangeFragment"
         android:name="com.example.deals.presentation.task.taskchange.TaskChangeFragment"

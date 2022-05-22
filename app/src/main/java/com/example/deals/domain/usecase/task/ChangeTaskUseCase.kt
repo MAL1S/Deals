@@ -11,4 +11,8 @@ class ChangeTaskUseCase @Inject constructor(
     fun changeTask(task: Task) {
         taskRepositoryImpl.change(task = task)
     }
+
+    fun changeTaskCompletion(completion: Boolean, id: Int) {
+        taskRepositoryImpl.change(completion = completion, id = id)
+    }
 }

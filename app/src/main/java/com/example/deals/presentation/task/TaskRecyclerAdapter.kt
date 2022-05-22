@@ -1,5 +1,6 @@
 package com.example.deals.presentation.task
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,7 @@ class TaskRecyclerAdapter(
     private val onTaskClickedListener: OnTaskClickedListener
 ) : RecyclerView.Adapter<TaskRecyclerAdapter.TaskRecyclerViewHolder>() {
 
-    class TaskRecyclerViewHolder(
+    inner class TaskRecyclerViewHolder(
         inflater: LayoutInflater,
         parent: ViewGroup,
         private val onTaskClickedListener: OnTaskClickedListener
@@ -28,6 +29,11 @@ class TaskRecyclerAdapter(
             binding.tvTaskCommentary.text = task.commentary
             binding.checkboxTask.isChecked = task.isCompleted
             binding.tvTaskDeadlineTime.text = task.deadlineDate
+
+            binding.checkboxTask.setOnCheckedChangeListener { compoundButton, b ->
+                task.isCompleted = binding.checkboxTask.isChecked
+                onTaskClickedListener.onCompletionChanged(task = task)
+            }
 
             itemView.setOnClickListener {
                 onTaskClickedListener.onTaskClicked(task = task)

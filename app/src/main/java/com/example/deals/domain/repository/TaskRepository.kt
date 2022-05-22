@@ -10,6 +10,8 @@ interface TaskRepository {
 
     fun change(task: Task)
 
+    fun change(completion: Boolean, id: Int)
+
     fun remove(task: Task)
 
     fun getTasks(deal: Deal): Single<List<Task>>

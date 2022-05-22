@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setSupportActionBar(binding.toolbar)
+        //binding.toolbar.showOverflowMenu()
+
         setupDrawerLayoutAndToolbar()
     }
 

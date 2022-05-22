@@ -11,22 +11,22 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            android:background="@color/blue"
-            android:theme="@style/Widget.AppCompat.Light.ActionBar">
+            style="@style/Toolbar"
+            android:background="@color/blue">
 
-            <TextView
-                android:id="@+id/toolbar_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/deals"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_24" />
+<!--            <TextView-->
+<!--                android:id="@+id/toolbar_text"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:text="Deals"-->
+<!--                android:textSize="@dimen/text_24" />-->
 
-        </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <fragment
             android:id="@+id/nav_host_fragment"

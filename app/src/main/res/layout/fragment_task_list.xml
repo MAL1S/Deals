@@ -14,14 +14,14 @@
         android:layout_marginHorizontal="@dimen/small_10"
         android:layout_marginTop="@dimen/medium_20"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/btn_deal_add"
+        app:layout_constraintBottom_toTopOf="@+id/btn_task_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/task_item" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_deal_add"
+        android:id="@+id/btn_task_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/medium_20"

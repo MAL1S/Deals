@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/medium_20"
+    android:layout_margin="@dimen/medium_20"
     android:backgroundTint="@color/orange"
     app:cardCornerRadius="@dimen/small_12">
 
@@ -26,6 +26,7 @@
             tools:text="Task name" />
 
         <CheckBox
+            android:id="@+id/checkbox_task_completion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/white"
@@ -50,6 +51,7 @@
 
 
         <TextView
+            android:id="@+id/tv_task_commentary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/medium_20"

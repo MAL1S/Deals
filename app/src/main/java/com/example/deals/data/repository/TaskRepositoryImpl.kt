@@ -1,5 +1,6 @@
 package com.example.deals.data.repository
 
+import android.util.Log
 import com.example.deals.data.local.TaskDao
 import com.example.deals.domain.model.Deal
 import com.example.deals.domain.model.Task
@@ -15,12 +16,17 @@ class TaskRepositoryImpl @Inject constructor(
     }
 
     override fun change(task: Task) {
-        taskDao.updateDeal(
+        taskDao.updateTask(
             name = task.name,
             commentary = task.commentary,
             deadlineDate = task.deadlineDate,
-            id = task.id
+            id = task.id,
+            completion = task.isCompleted
         )
+    }
+
+    override fun change(completion: Boolean, id: Int) {
+        taskDao.updateTaskCompletion(completion = completion, id = id)
     }
 
     override fun remove(task: Task) {
@@ -28,6 +34,6 @@ class TaskRepositoryImpl @Inject constructor(
     }
 
     override fun getTasks(deal: Deal): Single<List<Task>> {
-        return taskDao.getAllTasks()
+        return taskDao.getAllTasks(dealID = deal.id)
     }
 }

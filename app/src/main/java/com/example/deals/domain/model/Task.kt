@@ -12,5 +12,6 @@ data class Task(
     var name: String,
     var commentary: String,
     var deadlineDate: String,
-    var isCompleted: Boolean
+    var isCompleted: Boolean,
+    var dealID: Int
 ): Parcelable

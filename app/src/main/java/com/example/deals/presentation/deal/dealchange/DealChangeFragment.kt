@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.deals.R
@@ -45,6 +46,7 @@ class DealChangeFragment : Fragment() {
             if (deal != null) {
                 deal!!.name = binding.editTextDealNameChange.text.toString()
                 viewModel.changeDeal(deal = deal!!)
+                findNavController().popBackStack()
             }
         }
     }
