@@ -1,16 +1,19 @@
 package com.example.deals.presentation.task
 
-import android.content.Intent
+import android.graphics.Canvas
+import android.graphics.Color.red
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.deals.R
 import com.example.deals.databinding.FragmentTaskListBinding
@@ -20,7 +23,6 @@ import com.example.deals.presentation.main.MainActivity
 import com.example.deals.presentation.task.taskchange.TaskChangeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class TaskFragment : Fragment(), OnTaskClickedListener {
 
@@ -29,6 +31,8 @@ class TaskFragment : Fragment(), OnTaskClickedListener {
     private val binding by viewBinding(FragmentTaskListBinding::bind)
 
     private var deal: Deal? = null
+
+    private lateinit var adapter: TaskRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,18 +57,14 @@ class TaskFragment : Fragment(), OnTaskClickedListener {
         super.onResume()
 
         (requireActivity() as AppCompatActivity).supportActionBar?.title = deal?.name
-        MainActivity.State.drawerToggleLiveData.value = true
-        //(requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-//        val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
-//        toolbar.setnavigation
-//        (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
+        MainActivity.drawerToggleLiveData.value = true
         viewModel.getTasks(deal = deal!!)
     }
 
     private fun init() {
         viewModel.taskListLiveData.observe(viewLifecycleOwner) {
             Log.d("BRUH", "$it")
-            val adapter = TaskRecyclerAdapter(it, this)
+            adapter = TaskRecyclerAdapter(it.toMutableList(), this)
             binding.rcvTasks.adapter = adapter
             adapter.notifyDataSetChanged()
         }
@@ -78,6 +78,30 @@ class TaskFragment : Fragment(), OnTaskClickedListener {
                 view?.findNavController()?.navigate(action)
             }
         }
+        val simpleItemTouchCallback: ItemTouchHelper.SimpleCallback = object :
+            ItemTouchHelper.SimpleCallback(
+                0,
+                ItemTouchHelper.LEFT
+            ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return true
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) {
+                if (swipeDir == ItemTouchHelper.LEFT) {
+                    val position = viewHolder.absoluteAdapterPosition
+                    viewModel.removeTaskById(adapter.getTasks()[position])
+                    adapter.removeTaskByPosition(position)
+                    adapter.notifyItemRemoved(position)
+                }
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
+        itemTouchHelper.attachToRecyclerView(binding.rcvTasks)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

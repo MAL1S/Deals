@@ -12,7 +12,7 @@ import com.example.deals.domain.model.Deal
 import com.example.deals.domain.model.Task
 
 class TaskRecyclerAdapter(
-    private val tasks: List<Task>,
+    private val tasks: MutableList<Task>,
     private val onTaskClickedListener: OnTaskClickedListener
 ) : RecyclerView.Adapter<TaskRecyclerAdapter.TaskRecyclerViewHolder>() {
 
@@ -52,5 +52,11 @@ class TaskRecyclerAdapter(
     }
 
     override fun getItemCount(): Int = tasks.size
+
+    fun getTasks() = tasks
+
+    fun removeTaskByPosition(position: Int) {
+        tasks.removeAt(position)
+    }
 }
 

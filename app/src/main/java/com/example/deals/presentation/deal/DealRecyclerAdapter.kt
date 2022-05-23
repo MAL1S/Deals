@@ -9,7 +9,7 @@ import com.example.deals.databinding.DealItemBinding
 import com.example.deals.domain.model.Deal
 
 class DealRecyclerAdapter(
-    private val deals: List<Deal>,
+    private val deals: MutableList<Deal>,
     private val onDealClickedListener: OnDealClickedListener
 ) : RecyclerView.Adapter<DealRecyclerAdapter.DealRecyclerViewHolder>() {
 
@@ -40,5 +40,11 @@ class DealRecyclerAdapter(
     }
 
     override fun getItemCount(): Int = deals.size
+
+    fun getDeals() = deals
+
+    fun removeDealByPosition(position: Int) {
+        deals.removeAt(position)
+    }
 }
 

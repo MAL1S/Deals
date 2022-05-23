@@ -9,7 +9,7 @@ class RemoveTaskUseCase @Inject constructor(
     private val taskRepositoryImpl: TaskRepositoryImpl
 ) {
 
-    fun removeDealById(task: Task) {
+    fun removeTaskById(task: Task) {
         taskRepositoryImpl.remove(task = task)
     }
 }

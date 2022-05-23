@@ -24,46 +24,34 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var drawerToggle: ActionBarDrawerToggle
 
+    private var currentFragment = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         setupDrawerLayoutAndToolbar()
-
-
-//        drawerToggle = ActionBarDrawerToggle(
-//            this, binding.drawerLayout, binding.toolbar, R.string.edit, R.string.edit
-//        )
-//        drawerToggle.isDrawerIndicatorEnabled = true
-//        drawerToggle.syncState();
-//        binding.drawerLayout.addDrawerListener(drawerToggle);
-//
-//        supportFragmentManager.addOnBackStackChangedListener {
-//            if (supportFragmentManager.backStackEntryCount > 0) {
-//                supportActionBar?.setDisplayHomeAsUpEnabled(true); // show back button
-//                binding.toolbar.setNavigationOnClickListener {
-//                    onBackPressed()
-//                }
-//            } else {
-//                //show hamburger
-//                supportActionBar?.setDisplayHomeAsUpEnabled(false);
-//                drawerToggle.syncState();
-//
-//                binding.toolbar.setNavigationOnClickListener {
-//                    binding.drawerLayout.openDrawer(GravityCompat.START)
-//                }
-//            }
-//        }
     }
 
     private fun setupDrawerLayoutAndToolbar() {
+        binding.drawerLayoutDeals.setOnClickListener {
+            if (currentFragment == 1) {
+                currentFragment = 0
+                findNavController(R.id.nav_host_fragment).popBackStack()
+            }
+            binding.drawerLayout.close()
+        }
+        binding.drawerLayoutHelp.setOnClickListener {
+            if (currentFragment == 0) {
+                currentFragment = 1
+                findNavController(R.id.nav_host_fragment).navigate(R.id.action_dealFragment_to_helpFragment)
+            }
+            binding.drawerLayout.close()
+        }
 
         drawerToggle = ActionBarDrawerToggle(
             this,
@@ -95,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    companion object State {
+    companion object {
         val drawerToggleLiveData = MutableLiveData<Boolean>()
     }
 }

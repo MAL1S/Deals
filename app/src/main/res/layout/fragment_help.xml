@@ -1,14 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.help.HelpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/medium_20"
+            android:layout_marginTop="@dimen/medium_20"
+            android:text="How to create deal?"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/medium_20"
+            android:layout_marginTop="@dimen/small_10"
+            android:text="1. Click at hamburger button on the left side of app bar.\n2. Choose “deals” screen."
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_10"
+            android:src="@drawable/help_create_deal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/medium_20"
+            android:layout_marginTop="@dimen/medium_20"
+            android:text="How to create tasks in deal?"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/medium_20"
+            android:layout_marginTop="@dimen/small_10"
+            android:text="1. Press the &quot;Add deal&quot; button."
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_10"
+            android:src="@drawable/help_create_task" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/medium_20"
+            android:layout_marginTop="@dimen/medium_20"
+            android:text="How to change deal or task?"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/medium_20"
+            android:layout_marginTop="@dimen/small_10"
+            android:text="1. Press the edit button at the right side of app bar."
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_10"
+            android:src="@drawable/help_edit_deal_or_task" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/medium_20"
+            android:layout_marginTop="@dimen/medium_20"
+            android:text="How to delete deal or task?"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/medium_20"
+            android:layout_marginTop="@dimen/small_10"
+            android:text="1. Swipe the item of list to the left side."
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_10"
+            android:src="@drawable/help_delete_deal_or_task" />
+
+    </LinearLayout>
+
+</ScrollView>
